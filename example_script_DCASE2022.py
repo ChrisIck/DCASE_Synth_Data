@@ -15,17 +15,21 @@ from generation_parameters import get_params
 
 
 # use parameter set defined by user
-task_id = '2' 
+task_id = '1' 
 
 params = get_params(task_id)
     
     ### Create database config based on params (e.g. filelist name etc.)
-#db_config = DBConfig(params)
+db_config = DBConfig(params)
     
     # LOAD DB-config which is already done
-db_handler = open('db_config_fsd.obj','rb')
-db_config = pickle.load(db_handler)
-db_handler.close()
+#db_handler = open('db_config_fsd.obj','rb')
+#db_config = pickle.load(db_handler)
+#db_handler.close()
+
+file = open("rirdata_dict.pkl",'rb')
+db_config._rirdata = pickle.load(file)
+file.close()
     
 #create mixture synthesizer class
 noiselessSynth = MetadataSynthesizer(db_config, params, 'target_noiseless')

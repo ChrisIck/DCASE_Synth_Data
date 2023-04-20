@@ -5,6 +5,7 @@ import os
 import mat73
 import scipy.signal as signal
 import soundfile
+import pickle
 
 class AudioSynthesizer(object):
     def __init__(
@@ -17,9 +18,10 @@ class AudioSynthesizer(object):
         self._outpath = params['mixturepath'] + '/' + mixture_setup['scenario'] + '/' + self._audio_format
         self._rirdata = db_config._rirdata
         self._nb_rooms = len(self._rirdata)
-        self._room_names = []
-        for nr in range(self._nb_rooms):
-            self._room_names.append(self._rirdata[nr][0][0][0])
+        self._room_names = list(self._rirdata.keys())
+        #self._room_names = []
+        #for nr in range(self._nb_rooms):
+        #    self._room_names.append(self._rirdata[nr][0][0][0])
         self._classnames = mixture_setup['classnames']
         self._fs_mix = mixture_setup['fs_mix']
         self._t_mix = mixture_setup['mixture_duration']
@@ -34,6 +36,7 @@ class AudioSynthesizer(object):
         
     def synthesize_mixtures(self):
         rirdata2room_idx = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4, 6: 5, 8: 6, 9: 7, 10: 8} # room numbers in the rirdata array
+        rirdata2room_idx = {'bomb_shelter':1, 'gym':2, 'pb132':3, 'pc226':4, 'sa203':5, 'sc203':6, 'se203':8, 'tb103':9, 'tc352':10}
         # create path if doesn't exist
         if not os.path.isdir(self._outpath):
             os.makedirs(self._outpath)
@@ -50,24 +53,34 @@ class AudioSynthesizer(object):
                 print('Loading RIRs for room {}'.format(nroom))
                 
                 room_idx = rirdata2room_idx[nroom]
-                if nroom > 9:
-                    struct_name = 'rirs_{}_{}'.format(nroom,self._room_names[room_idx])
+                if room_idx > 9:
+                    #struct_name = 'rirs_{}_{}'.format(nroom,self._room_names[room_idx])
+                    struct_name = 'rirs_{}_{}'.format(room_idx,nroom)
                 else:
-                    struct_name = 'rirs_0{}_{}'.format(nroom,self._room_names[room_idx])
-                path = self._rirpath + '/' + struct_name + '.mat'
-                rirs = mat73.loadmat(path)
-                rirs = rirs['rirs'][self._audio_format]
+                    #struct_name = 'rirs_0{}_{}'.format(nroom,self._room_names[room_idx])
+                    struct_name = 'rirs_0{}_{}'.format(room_idx,nroom)
+                path = self._rirpath + '/' + struct_name + '.pkl'
+                with open(path,'rb') as f:
+                    rirs = pickle.load(f)
+                #rirs = mat73.loadmat(path)
+                #rirs = rirs['rirs'][self._audio_format]
                 # stack all the RIRs for all heights to make one large trajectory
                 print('Stacking same trajectory RIRs')
                 lRir = len(rirs[0][0])
                 nCh = len(rirs[0][0][0])
                 
-                n_traj = np.shape(self._rirdata[room_idx][0][2])[0]
-                n_rirs_max = np.max(np.sum(self._rirdata[room_idx][0][3],axis=1))
+                #n_traj = np.shape(self._rirdata[nroom_idx][0][2])[0]
+                n_traj = len(self._rirdata[nroom])
+                #n_rirs_max = np.max(np.sum(self._rirdata[room_idx][0][3],axis=1))
+                n_rirs_max = 0
+                for trj in self._rirdata[nroom]:
+                    n_rirs_ = np.sum([len(hei) for hei in trj])
+                    if n_rirs_ > n_rirs_max:
+                        n_rirs_max = n_rirs_
                 
                 channel_rirs = np.zeros((lRir, nCh, n_rirs_max, n_traj))
                 for ntraj in range(n_traj):
-                    nHeights = np.sum(self._rirdata[room_idx][0][3][ntraj,:]>0)
+                    nHeights = len(self._rirdata[nroom][ntraj])
                     
                     nRirs_accum = 0
                     
@@ -76,11 +89,12 @@ class AudioSynthesizer(object):
                     # continue moving the opposite direction
                     flip = False
                     for nheight in range(nHeights):
-                        nRirs_nh = self._rirdata[room_idx][0][3][ntraj,nheight]
+                        nRirs_nh = len(self._rirdata[nroom][ntraj][nheight])
                         rir_l = len(rirs[ntraj][nheight][0,0,:])
                         if flip:
                             channel_rirs[:, :, nRirs_accum + np.arange(0,nRirs_nh),ntraj] = rirs[ntraj][nheight][:,:,np.arange(rir_l-1,-1,-1)]
                         else:
+                            print(nRirs_accum,nRirs_nh,ntraj,ntraj,nheight)
                             channel_rirs[:, :, nRirs_accum + np.arange(0,nRirs_nh),ntraj] = rirs[ntraj][nheight]
                             
                         nRirs_accum += nRirs_nh

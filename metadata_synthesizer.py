@@ -42,6 +42,20 @@ class MetadataSynthesizer(object):
         self._rnd_generator = np.random.default_rng()
         
         self._rirdata = db_config._rirdata
+        #print(len(self._rirdata['sa203']))
+        #for i in range(6):
+        #    print(len(self._rirdata['sa203'][i]))
+        #    print(len(self._rirdata['sa203'][i][0]))
+        #    print(len(self._rirdata['sa203'][i][1]))
+        #    print(len(self._rirdata['sa203'][i][2]))
+        #    print()
+        #n_rirs_max = 0
+        #for trj in self._rirdata['sa203']:
+        #    n_rirs_ = np.sum([len(hei) for hei in trj])
+        #    if n_rirs_ > n_rirs_max:
+        #        n_rirs_max = n_rirs_
+        #print(n_rirs_max)
+        #input()
         self._nb_classes = len(self._classnames)
         self._nb_speeds = len(self._mixture_setup['speed_set'])
         self._nb_snrs = len(self._mixture_setup['snr_set'])
@@ -60,8 +74,9 @@ class MetadataSynthesizer(object):
             print('Generating metadata for fold {}'.format(str(nfold+1)))
             
             foldlist_nff = {}
-            rooms_nf = np.array(self._mixture_setup['rooms2folds'][nfold])
-            rooms_nf = rooms_nf[rooms_nf>0]
+            #rooms_nf = np.array(self._mixture_setup['rooms2folds'][nfold])
+            #rooms_nf = rooms_nf[rooms_nf>0]
+            rooms_nf = self._mixture_setup['rooms2folds'][nfold]
             nb_rooms_nf = len(rooms_nf)
             
             
@@ -88,24 +103,54 @@ class MetadataSynthesizer(object):
             foldlist_nf['duration'] = foldlist_nf['duration'][sampleperm]
             foldlist_nf['onoffset'] = foldlist_nf['onoffset'][sampleperm]
             room_mixtures = []
-            for nr in range(nb_rooms_nf):
+
+            #####################
+            #####################
+            #####################
+            # rooms_nf should be changed to be a list of room names
+            #####################
+            #####################
+
+            #for nr in range(nb_rooms_nf):
+            for nr in rooms_nf:
                 fold_mixture = {'mixture': []}
                 fold_mixture['roomidx'] = rooms_nf
-                nroom = rooms_nf[nr]
-                print('Room {} \n'.format(nroom+1))              
-                n_traj = np.shape(self._rirdata[rirdata2room_idx[nroom]][0][2])[0] #number of trajectories
+                #nroom = rooms_nf[nr]
+                nroom = nr
+                #print('Room {} \n'.format(nroom+1))              
+                print('Room {} \n'.format(nroom))              
+
+                #####################
+                #####################
+                #####################
+                # rirdata:  * should be a dictionary wih keys being room names
+                #               * each key should hold a dictionary that separates rir and distance data
+                #                   * each key holds a list with the trajectories present in the room
+                #                       * each trajectory should be a list of arrays, each with the doa or distance information at a different height
+                #####################
+                #####################
+
+                #n_traj = np.shape(self._rirdata[rirdata2room_idx[nroom]][0][2])[0] #number of trajectories
+                n_traj = len(self._rirdata[nroom])
+
                 traj_doas = []
                 
-                for ntraj in range(n_traj):
-                    n_rirs = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,:])
-                    n_heights = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,:]>0)
+                #for ntraj in n_traj:
+                for ntraj in self._rirdata[nroom]:
+                    #n_rirs = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,:])
+                    n_rirs = np.sum([len(subtr) for subtr in ntraj])
+
+                    #n_heights = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,:]>0)
+                    n_heights = len(ntraj)
                     all_doas = np.zeros((n_rirs, 3))
                     n_rirs_accum = 0
                     flip = 0
                     
                     for nheight in range(n_heights):
-                        n_rirs_nh = self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,nheight]
-                        doa_xyz = self._rirdata[rirdata2room_idx[nroom]][0][2][ntraj,nheight][0]
+                        #n_rirs_nh = self._rirdata[rirdata2room_idx[nroom]][0][3][ntraj,nheight]
+                        n_rirs_nh = len(ntraj[nheight])
+                        #doa_xyz = self._rirdata[rirdata2room_idx[nroom]][0][2][ntraj,nheight][0]
+                        doa_xyz = ntraj[nheight]
                         #   stack all doas of trajectory together
                         #   flip the direction of each second height, so that a
                         #   movement can jump from the lower to the higher smoothly and
@@ -129,7 +174,7 @@ class MetadataSynthesizer(object):
                     nb_mixtures_per_fold_per_room = int(np.round(self._nb_mixtures_per_fold[nfold] / float(nb_rooms_nf)))
                 
                 for nmix in range(nb_mixtures_per_fold_per_room):
-                    print('Room {}, mixture {}'.format(nroom+1, nmix+1))
+                    print('Room {}, mixture {}'.format(nroom, nmix+1))
 
                     event_counter = 0
                     nth_mixture = {'files': np.array([]), 'class': np.array([]), 'event_onoffsets': np.array([]),
@@ -255,7 +300,8 @@ class MetadataSynthesizer(object):
                                     
                             # trajectory
                             ev_traj = self._rnd_generator.integers(0, n_traj)
-                            nRirs = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ev_traj,:])
+                            nRirs = np.sum([len(subtr) for subtr in self._rirdata[nroom][ev_traj]])
+                            #nRirs = np.sum(self._rirdata[rirdata2room_idx[nroom]][0][3][ev_traj,:])
                             
                             #if event is less than move_threshold long, make it static by default
                             if event_duration_nl <= self._move_threshold*10:

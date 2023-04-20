@@ -7,10 +7,21 @@ class AudioMixer(object):
             self, params, db_config, mixtures, mixture_setup, audio_format, scenario_out, scenario_interf='target_interf'
             ):
         self._recpath2020 = params['noisepath']
-        self._rooms_paths2020 = ['01_bomb_center','02_gym','03_pb132_paatalo_classroom2','04_pc226_paatalo_office',
-                                  '05_sa203_sahkotalo_lecturehall','06_sc203_sahkotalo_classroom2','07_se201_sahkotalo_classroom',
-                                  '08_se203_sahkotalo_classroom','09_tb103_tietotalo_lecturehall',
-                                  '10_tc352_tietotalo_meetingroom']
+        #self._rooms_paths2020 = ['01_bomb_center','02_gym','03_pb132_paatalo_classroom2','04_pc226_paatalo_office',
+        #                          '05_sa203_sahkotalo_lecturehall','06_sc203_sahkotalo_classroom2','07_se201_sahkotalo_classroom',
+        #                          '08_se203_sahkotalo_classroom','09_tb103_tietotalo_lecturehall',
+        #                          '10_tc352_tietotalo_meetingroom']
+        self._rooms_paths2020 = {
+                'bomb_shelter':'01_bomb_center',
+                'gym':'02_gym',
+                'pb132':'03_pb132_paatalo_classroom2',
+                'pc226':'04_pc226_paatalo_office',
+                'sa203':'05_sa203_sahkotalo_lecturehall',
+                'sc203':'06_sc203_sahkotalo_classroom2',
+                'se201':'07_se201_sahkotalo_classroom',
+                'se203':'08_se203_sahkotalo_classroom',
+                'tb103':'09_tb103_tietotalo_lecturehall',
+                'tc352':'10_tc352_tietotalo_meetingroom'}
         self._nb_rooms2020 = len(self._rooms_paths2020)
         self._recpath2019 = params['noisepath']
         self._rooms_paths2019 = ['11_language_center','12_tietotalo','13_reaktori','14_sahkotalo','15_festia']
@@ -59,10 +70,10 @@ class AudioMixer(object):
                 
                 if self._scenarios[2]:
                     print('Loading ambience')
-                    recpath = self._recpath2020 if nroom <=10 else self._recpath2019
-                    roompath = self._rooms_paths2020 if nroom <= 10 else self._rooms_paths2019
+                    recpath = self._recpath2020 #if nroom <=10 else self._recpath2019
+                    roompath = self._rooms_paths2020 #if nroom <= 10 else self._rooms_paths2019
                     roomidx = nroom if nroom <= 10 else nroom-10
-                    ambience, _ = soundfile.read(recpath  + '/' + roompath[roomidx-1] + '/ambience_' + self._mic_format + '_24k_edited.wav')
+                    ambience, _ = soundfile.read(recpath  + '/' + roompath[roomidx] + '/ambience_' + self._mic_format + '_24k_edited.wav')
                     lSig = np.shape(ambience)[0]
                     nSegs = np.floor(lSig/self._lMix)
                 
