@@ -21,11 +21,13 @@ params = get_params(task_id)
     
     ### Create database config based on params (e.g. filelist name etc.)
 db_config = DBConfig(params)
+rooms2fold = [x for x in db_config._rooms2fold]
     
     # LOAD DB-config which is already done
-#db_handler = open('db_config_fsd.obj','rb')
-#db_config = pickle.load(db_handler)
-#db_handler.close()
+db_handler = open('db_config_fsd.obj','rb')
+db_config = pickle.load(db_handler)
+db_config._rooms2fold = rooms2fold
+db_handler.close()
 
 file = open("rirdata_dict.pkl",'rb')
 db_config._rirdata = pickle.load(file)
