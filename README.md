@@ -1,6 +1,8 @@
 # DCASE2022-data-generator
 Data generator for creating synthetic audio mixtures suitable for DCASE Challenge 2022 Task 3
 
+This Fork tries to remove some of its original quircks (such as use of nedlessly intricate matlab files)
+
 ### Prerequisites
 
 The provided code was tested with Python 3.8 and the following libraries:
