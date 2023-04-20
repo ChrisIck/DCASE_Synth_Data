@@ -70,17 +70,17 @@ class AudioSynthesizer(object):
                 nCh = len(rirs[0][0][0])
                 
                 #n_traj = np.shape(self._rirdata[nroom_idx][0][2])[0]
-                n_traj = len(self._rirdata[nroom])
+                n_traj = len(self._rirdata[nroom]['doa_xyz'])
                 #n_rirs_max = np.max(np.sum(self._rirdata[room_idx][0][3],axis=1))
                 n_rirs_max = 0
-                for trj in self._rirdata[nroom]:
+                for trj in self._rirdata[nroom]['doa_xyz']:
                     n_rirs_ = np.sum([len(hei) for hei in trj])
                     if n_rirs_ > n_rirs_max:
                         n_rirs_max = n_rirs_
                 
                 channel_rirs = np.zeros((lRir, nCh, n_rirs_max, n_traj))
                 for ntraj in range(n_traj):
-                    nHeights = len(self._rirdata[nroom][ntraj])
+                    nHeights = len(self._rirdata[nroom]['doa_xyz'][ntraj])
                     
                     nRirs_accum = 0
                     
@@ -89,7 +89,7 @@ class AudioSynthesizer(object):
                     # continue moving the opposite direction
                     flip = False
                     for nheight in range(nHeights):
-                        nRirs_nh = len(self._rirdata[nroom][ntraj][nheight])
+                        nRirs_nh = len(self._rirdata[nroom]['doa_xyz'][ntraj][nheight])
                         rir_l = len(rirs[ntraj][nheight][0,0,:])
                         if flip:
                             channel_rirs[:, :, nRirs_accum + np.arange(0,nRirs_nh),ntraj] = rirs[ntraj][nheight][:,:,np.arange(rir_l-1,-1,-1)]

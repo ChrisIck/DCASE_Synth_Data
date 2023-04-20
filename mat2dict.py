@@ -67,7 +67,7 @@ for iroom, room in enumerate(rirdata_dict.keys()):
     trajs_list = []
     for ntraj in range(len(trajectories)):
         heights_list = []
-        for nheight in range(len(heights)):
+        for nheight in range(len(heights[0])):
             ndoas = rirdata_dict[room]['doa_xyz'][ntraj][nheight].shape[0]
             height_delta = heights[0,nheight] - 1.2 # the microphone height is assumed to be 1.2
             if trajectory_type == 'circular':
