@@ -3,6 +3,7 @@ import scipy.io
 import csv
 import librosa
 import os
+import pickle
 
 class DBConfig(object):
     def __init__(
@@ -64,8 +65,8 @@ class DBConfig(object):
            
     
     def _load_rirdata(self):
-        matdata = scipy.io.loadmat(self._rirpath + '/rirdata.mat')
-        rirdata = matdata['rirdata']['room'][0][0]
+        with open(os.path.join(self._rirpath, "rirdata_dict.pkl"),'rb') as file:
+            rirdata = pickle.load(file)
         return rirdata
     
     def _load_db_fileinfo_fsd(self):
