@@ -1,21 +1,27 @@
 # Parameters used in the data generation process.
+import os
+# Parameters used in the data generation process.
 
+tau_rir_path = "/scratch/ci411/TAU_SRIR_DB/TAU-SRIR_DB"
+tau_noise_path = "/scratch/ci411/TAU_SRIR_DB/TAU-SNoise_DB"
+fsd50k_path = "/scratch/work/marl/datasets/sound_datasets/fsd50k"
+nigens_path ="/scratch/ci411/NIGENS"
+mixture_path = "/scratch/ci411/DCASE_GEN/mixtures"
 
 def get_params(argv='1'):
     print("SET: {}".format(argv))
     # ########### default parameters (NIGENS data) ##############
     params = dict(
         db_name = 'nigens',  # name of the audio dataset used for data generation
-        #rirpath = '/scratch/asignal/krauseda/DCASE_data_generator/RIR_DB',   # path containing Room Impulse Responses (RIRs)
-        rirpath = '/home/iran/datasets/TAU-SRIR_DB/',
-        mixturepath = '/home/iran/datasets/DCASE_NIGENS',  # output path for the generated dataset
-        noisepath = '/scratch/asignal/krauseda/DCASE_data_generator/Noise_DB',  # path containing background noise recordings
+        rirpath = tau_rir_path, 
+        mixturepath = os.path.join(mixture_path, "nigens_1"),  # output path for the generated dataset
+        noisepath = tau_noise_path,  # path containing background noise recordings
         nb_folds = 2,  # number of folds (default 2 - training and testing)
         #rooms2fold = [[10, 6, 1, 4, 3, 8], # FOLD 1, rooms assigned to each fold (0's are ignored)
         #              [9, 5, 2, 0, 0, 0]], # FOLD 2
         rooms2fold = [['tc352','sc203','bomb_shelter','pc226','pb132','se203'],
                         ['tb103','sa203','gym']],
-        db_path = '/home/iran/datasets/NIGENS',  # path containing audio events to be utilized during data generation
+        db_path = nigens_path,  # path containing audio events to be utilized during data generation
         max_polyphony = 3,  # maximum number of overlapping sound events
         active_classes = [0, 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13],  # list of sound classes to be used for data generation
         nb_mixtures_per_fold = [900, 300], # if scalar, same number of mixtures for each fold
@@ -31,8 +37,9 @@ def get_params(argv='1'):
 
     elif argv == '2': ###### FSD50k DATA
         params['db_name'] = 'fsd50k'
-        params['db_path']= '/scratch/asignal/krauseda/DCASE_data_generator/Code/FSD50k'
-        params['mixturepath'] = '/scratch/asignal/krauseda/Data-FSD'
+        params['db_path']= fsd50k_path
+        params['mixturepath'] = os.path.join(mixture_path, "fsd_1"),  # output path for the generated dataset
+
         params['active_classes'] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
         params['max_polyphony'] = 2
 

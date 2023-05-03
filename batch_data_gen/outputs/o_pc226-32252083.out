@@ -1,0 +1,179 @@
+Defining mics...
+Mic placed at [0.05 0.05 0.05]
+SET: 1
+USING DEFAULT PARAMETERS FOR NIGENS DATA
+
+	db_name: nigens
+	rirpath: /scratch/ci411/TAU_SRIR_DB/TAU-SRIR_DB
+	mixturepath: /scratch/ci411/DCASE_GEN/mixtures/nigens_1
+	noisepath: /scratch/ci411/TAU_SRIR_DB/TAU-SNoise_DB
+	nb_folds: 2
+	rooms2fold: [[10, 6, 1, 4, 3, 8], [9, 5, 2, 0, 0, 0]]
+	db_path: /scratch/ci411/NIGENS
+	max_polyphony: 3
+	active_classes: [0, 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13]
+	nb_mixtures_per_fold: [900, 300]
+	mixture_duration: 60.0
+	event_time_per_layer: 40.0
+	audio_format: both
+	obj_path: db_config_fsd.obj
+	old_meta_synth: False
+
+bomb_shelter
+['close', 'far']
+circular
+[[2.5 5. ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+gym
+['close', 'far']
+circular
+[[2.5 5. ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+pb132
+['close', 'far']
+circular
+[[1.4 2.8]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+pc226
+['close', 'far']
+circular
+[[1.35 2.7 ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+sa203
+['j1', 'j2', 'j3', 'j4', 'j5', 'j6']
+linear
+[[[-3.6 -2.8 -1.9  1.8  2.7  3.6]
+  [ 2.7  2.7  2.7  2.7  2.7  2.7]
+  [ 1.2  0.9  0.6 -0.6 -0.9 -1.2]]
+
+ [[-3.6 -2.8 -1.9  1.8  2.7  3.6]
+  [-2.7 -2.7 -2.7 -2.7 -2.7 -2.7]
+  [ 1.2  0.9  0.6 -0.6 -0.9 -1.2]]]
+[[1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+sc203
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[-5.  -2.5  2.5  5. ]
+  [ 2.9  2.9  2.9  2.9]
+  [ 0.   0.   0.   0. ]]
+
+ [[-5.  -2.5  2.5  5. ]
+  [-2.9 -2.9 -2.9 -2.9]
+  [ 0.   0.   0.   0. ]]]
+[[0.4 0.8 1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+se203
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[ 4.95  2.55 -2.55 -4.95]
+  [ 5.1   5.1   5.1   5.1 ]
+  [ 0.    0.    0.    0.  ]]
+
+ [[ 4.95  2.55 -2.55 -4.95]
+  [-5.1  -5.1  -5.1  -5.1 ]
+  [ 0.    0.    0.    0.  ]]]
+[[1.  1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+tb103
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[-4.35 -2.15  2.15  4.35]
+  [ 4.3   4.    3.8   3.6 ]
+  [ 1.    0.5  -0.5  -1.  ]]
+
+ [[-4.35 -2.15  2.15  4.35]
+  [-3.6  -3.6  -3.3  -3.3 ]
+  [ 1.    0.5  -0.5  -1.  ]]]
+[[1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+tc352
+['open', 'closed']
+circular
+[[2.35 2.35]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+Preparing sample list for fold 1
+Preparing sample list for fold 2
+Loading room info...
+Loading path data...
+Computing rirs...
+t0h0
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h0.hdf5
+t0h1
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h1.hdf5
+t0h2
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h2.hdf5
+t0h3
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h3.hdf5
+t0h4
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h4.hdf5
+t0h5
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h5.hdf5
+t0h6
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h6.hdf5
+t0h7
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h7.hdf5
+t0h8
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/pc226/pc226_t0h8.hdf5
+t1h0
+Source at [4.0114378  5.00339641 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.96759346 5.02066715 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.92345439 5.03717008 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.87903402 5.05290015 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.83434588 5.06785259 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.7894036  5.08202284 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.74422086 5.09540658 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.69881142 5.10799973 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.65318912 5.11979846 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.60736785 5.13079917 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.56136157 5.14099852 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.51518429 5.1503934  0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.46885008 5.15898093 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.42237306 5.16675852 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [3.32904723 5.17987461 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.32904723 5.17987461 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.28222685 5.18520912 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.23532051 5.18972568 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.18834248 5.19342294 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.14130708 5.19629974 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.09422864 5.19835523 0.32271682] is not inside room of dimensions [6, 5, 3]
+Source at [3.0471215  5.19958878 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [3.         5.2        0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.9528785  5.19958878 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.90577136 5.19835523 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.85869292 5.19629974 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.81165752 5.19342294 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.76467949 5.18972568 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.71777315 5.18520912 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.67095277 5.17987461 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.62423263 5.17372379 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.57762694 5.16675852 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.62423263 5.17372379 0.27031544] is not inside room of dimensions [6, 5, 3]
+Source at [2.48481571 5.1503934  0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.43863843 5.14099852 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.39263215 5.13079917 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.34681088 5.11979846 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.30118858 5.10799973 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.25577914 5.09540658 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.30118858 5.10799973 0.21728037] is not inside room of dimensions [6, 5, 3]
+Source at [2.16565412 5.06785259 0.16356711] is not inside room of dimensions [6, 5, 3]
+Source at [2.12096598 5.05290015 0.16356711] is not inside room of dimensions [6, 5, 3]
+Source at [2.07654561 5.03717008 0.16356711] is not inside room of dimensions [6, 5, 3]
+Source at [2.03240654 5.02066715 0.16356711] is not inside room of dimensions [6, 5, 3]
+Traceback (most recent call last):
+  File "sim_room.py", line 193, in <module>
+    path_rirs[k,l] = room.rir[k][l][:args.rir_len]
+IndexError: list index out of range

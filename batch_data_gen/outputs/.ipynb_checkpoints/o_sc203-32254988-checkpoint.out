@@ -1,0 +1,208 @@
+Defining mics...
+Mic placed at [0.05 0.05 0.05]
+SET: 1
+USING DEFAULT PARAMETERS FOR NIGENS DATA
+
+	db_name: nigens
+	rirpath: /scratch/ci411/TAU_SRIR_DB/TAU-SRIR_DB
+	mixturepath: /scratch/ci411/DCASE_GEN/mixtures/nigens_1
+	noisepath: /scratch/ci411/TAU_SRIR_DB/TAU-SNoise_DB
+	nb_folds: 2
+	rooms2fold: [[10, 6, 1, 4, 3, 8], [9, 5, 2, 0, 0, 0]]
+	db_path: /scratch/ci411/NIGENS
+	max_polyphony: 3
+	active_classes: [0, 1, 2, 3, 5, 6, 8, 9, 10, 11, 12, 13]
+	nb_mixtures_per_fold: [900, 300]
+	mixture_duration: 60.0
+	event_time_per_layer: 40.0
+	audio_format: both
+	obj_path: db_config_fsd.obj
+	old_meta_synth: False
+
+bomb_shelter
+['close', 'far']
+circular
+[[2.5 5. ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+gym
+['close', 'far']
+circular
+[[2.5 5. ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+pb132
+['close', 'far']
+circular
+[[1.4 2.8]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+pc226
+['close', 'far']
+circular
+[[1.35 2.7 ]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+
+sa203
+['j1', 'j2', 'j3', 'j4', 'j5', 'j6']
+linear
+[[[-3.6 -2.8 -1.9  1.8  2.7  3.6]
+  [ 2.7  2.7  2.7  2.7  2.7  2.7]
+  [ 1.2  0.9  0.6 -0.6 -0.9 -1.2]]
+
+ [[-3.6 -2.8 -1.9  1.8  2.7  3.6]
+  [-2.7 -2.7 -2.7 -2.7 -2.7 -2.7]
+  [ 1.2  0.9  0.6 -0.6 -0.9 -1.2]]]
+[[1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+sc203
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[-5.  -2.5  2.5  5. ]
+  [ 2.9  2.9  2.9  2.9]
+  [ 0.   0.   0.   0. ]]
+
+ [[-5.  -2.5  2.5  5. ]
+  [-2.9 -2.9 -2.9 -2.9]
+  [ 0.   0.   0.   0. ]]]
+[[0.4 0.8 1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+se203
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[ 4.95  2.55 -2.55 -4.95]
+  [ 5.1   5.1   5.1   5.1 ]
+  [ 0.    0.    0.    0.  ]]
+
+ [[ 4.95  2.55 -2.55 -4.95]
+  [-5.1  -5.1  -5.1  -5.1 ]
+  [ 0.    0.    0.    0.  ]]]
+[[1.  1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+tb103
+['j1', 'j2', 'j3', 'j4']
+linear
+[[[-4.35 -2.15  2.15  4.35]
+  [ 4.3   4.    3.8   3.6 ]
+  [ 1.    0.5  -0.5  -1.  ]]
+
+ [[-4.35 -2.15  2.15  4.35]
+  [-3.6  -3.6  -3.3  -3.3 ]
+  [ 1.    0.5  -0.5  -1.  ]]]
+[[1.2 1.6 2. ]]
+[[0.  0.  1.2]]
+
+tc352
+['open', 'closed']
+circular
+[[2.35 2.35]]
+[[0.4 0.6 0.8 1.  1.2 1.4 1.6 1.8 2. ]]
+[[0.  0.  1.2]]
+Preparing sample list for fold 1
+Preparing sample list for fold 2
+Loading room info...
+Loading path data...
+Computing rirs...
+t0h0
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t0h0.hdf5
+t0h1
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t0h1.hdf5
+t0h2
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t0h2.hdf5
+t0h3
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t0h3.hdf5
+t0h4
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t0h4.hdf5
+t1h0
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t1h0.hdf5
+t1h1
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t1h1.hdf5
+t1h2
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t1h2.hdf5
+t1h3
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t1h3.hdf5
+t1h4
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t1h4.hdf5
+t2h0
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t2h0.hdf5
+t2h1
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t2h1.hdf5
+t2h2
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t2h2.hdf5
+t2h3
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t2h3.hdf5
+t2h4
+Stored path at /scratch/ci411/DCASE_GEN/sim_rirs/sc203/sc203_t2h4.hdf5
+t3h0
+Source at [9.44988247 6.97418944 0.3884191 ] is not inside room of dimensions [9, 8, 4]
+Source at [9.43569813 6.73590215 0.30619692] is not inside room of dimensions [9, 8, 4]
+Source at [9.43716998 6.62513984 0.31436317] is not inside room of dimensions [9, 8, 4]
+Source at [9.45471747 6.52455465 0.4184792 ] is not inside room of dimensions [9, 8, 4]
+Source at [9.43986189 6.40933163 0.32950329] is not inside room of dimensions [9, 8, 4]
+Source at [9.45673224 6.3113622  0.43136125] is not inside room of dimensions [9, 8, 4]
+Source at [9.4422466  6.20042996 0.34314613] is not inside room of dimensions [9, 8, 4]
+Source at [9.4433332  6.09832045 0.34943733] is not inside room of dimensions [9, 8, 4]
+Source at [9.45932544 6.00369754 0.44827451] is not inside room of dimensions [9, 8, 4]
+Source at [9.46008618 5.90399869 0.45331055] is not inside room of dimensions [9, 8, 4]
+Source at [9.4462085  5.80027267 0.36632051] is not inside room of dimensions [9, 8, 4]
+Source at [9.44704801 5.70340523 0.37131672] is not inside room of dimensions [9, 8, 4]
+Source at [9.44783215 5.60764812 0.37601151] is not inside room of dimensions [9, 8, 4]
+Source at [9.44856306 5.51292756 0.38041253] is not inside room of dimensions [9, 8, 4]
+Source at [9.44924273 5.41917252 0.38452692] is not inside room of dimensions [9, 8, 4]
+Source at [9.44987298 5.32631447 0.38836122] is not inside room of dimensions [9, 8, 4]
+Source at [9.45045545 5.23428717 0.3919215 ] is not inside room of dimensions [9, 8, 4]
+Source at [9.45099166 5.14302649 0.39521333] is not inside room of dimensions [9, 8, 4]
+Source at [9.45148299 5.0524702  0.3982418 ] is not inside room of dimensions [9, 8, 4]
+Source at [9.45193068 4.96255782 0.40101156] is not inside room of dimensions [9, 8, 4]
+Source at [9.45233586 4.87323043 0.40352684] is not inside room of dimensions [9, 8, 4]
+Source at [9.45269954 4.78443054 0.40579143] is not inside room of dimensions [9, 8, 4]
+Source at [9.46620948 4.69795523 0.49518557] is not inside room of dimensions [9, 8, 4]
+Source at [9.46643429 4.60980145 0.49677142] is not inside room of dimensions [9, 8, 4]
+Source at [9.46662804 4.52201364 0.49814109] is not inside room of dimensions [9, 8, 4]
+Source at [9.4667912  4.43453792 0.49929663] is not inside room of dimensions [9, 8, 4]
+Source at [9.46692416 4.34732117 0.50023975] is not inside room of dimensions [9, 8, 4]
+Source at [9.46702724 4.26031087 0.50097185] is not inside room of dimensions [9, 8, 4]
+Source at [9.4671007  4.17345498 0.50149401] is not inside room of dimensions [9, 8, 4]
+Source at [9.46714471 4.08670183 0.501807  ] is not inside room of dimensions [9, 8, 4]
+Source at [9.46715936 4.         0.50191128] is not inside room of dimensions [9, 8, 4]
+Source at [9.46714471 3.91329817 0.501807  ] is not inside room of dimensions [9, 8, 4]
+Source at [9.4671007  3.82654502 0.50149401] is not inside room of dimensions [9, 8, 4]
+Source at [9.46702724 3.73968913 0.50097185] is not inside room of dimensions [9, 8, 4]
+Source at [9.46692416 3.65267883 0.50023975] is not inside room of dimensions [9, 8, 4]
+Source at [9.46692416 3.65267883 0.50023975] is not inside room of dimensions [9, 8, 4]
+Source at [9.4781778  3.47677243 0.58538973] is not inside room of dimensions [9, 8, 4]
+Source at [9.46643429 3.39019855 0.49677142] is not inside room of dimensions [9, 8, 4]
+Source at [9.47785608 3.30040795 0.58278948] is not inside room of dimensions [9, 8, 4]
+Source at [9.46595306 3.2134703  0.49338116] is not inside room of dimensions [9, 8, 4]
+Source at [9.4656644  3.12441939 0.49135548] is not inside room of dimensions [9, 8, 4]
+Source at [9.46534278 3.03483514 0.48910545] is not inside room of dimensions [9, 8, 4]
+Source at [9.45099166 2.85697351 0.39521333] is not inside room of dimensions [9, 8, 4]
+Source at [9.45099166 2.85697351 0.39521333] is not inside room of dimensions [9, 8, 4]
+Source at [9.46417165 2.762293   0.480973  ] is not inside room of dimensions [9, 8, 4]
+Source at [9.44924273 2.58082748 0.38452692] is not inside room of dimensions [9, 8, 4]
+Source at [9.44924273 2.58082748 0.38452692] is not inside room of dimensions [9, 8, 4]
+Source at [9.46266904 2.48275981 0.47067429] is not inside room of dimensions [9, 8, 4]
+Source at [9.46208858 2.38771969 0.46673541] is not inside room of dimensions [9, 8, 4]
+Source at [9.4462085  2.19972733 0.36632051] is not inside room of dimensions [9, 8, 4]
+Source at [9.4462085  2.19972733 0.36632051] is not inside room of dimensions [9, 8, 4]
+Source at [9.46008618 2.09600131 0.45331055] is not inside room of dimensions [9, 8, 4]
+Source at [9.45932544 1.99630246 0.44827451] is not inside room of dimensions [9, 8, 4]
+Source at [9.45851451 1.89523547 0.44294395] is not inside room of dimensions [9, 8, 4]
+Source at [9.45765098 1.79271157 0.43730954] is not inside room of dimensions [9, 8, 4]
+Source at [9.45765098 1.79271157 0.43730954] is not inside room of dimensions [9, 8, 4]
+Source at [9.48258109 1.67658428 0.6221716 ] is not inside room of dimensions [9, 8, 4]
+Source at [9.47127354 1.78664642 0.53183879] is not inside room of dimensions [9, 8, 4]
+Source at [9.47127354 1.78664642 0.53183879] is not inside room of dimensions [9, 8, 4]
+Source at [9.47127354 1.78664642 0.53183879] is not inside room of dimensions [9, 8, 4]
+Source at [9.47127354 1.78664642 0.53183879] is not inside room of dimensions [9, 8, 4]
+Traceback (most recent call last):
+  File "sim_room.py", line 193, in <module>
+    path_rirs[k,l] = room.rir[k][l][:args.rir_len]
+IndexError: list index out of range

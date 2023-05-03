@@ -1,0 +1,24 @@
+Defining mics...
+Mic placed at [0.05 0.05 0.05]
+Loading room info...
+Loading path data...
+Computing rirs...
+t0h0
+t0h1
+t0h2
+t1h0
+t1h1
+t1h2
+t2h0
+t2h1
+t2h2
+t3h0
+t3h1
+t3h2
+t4h0
+t4h1
+t4h2
+t5h0
+t5h1
+t5h2
+Storing result to /scratch/ci411/DCASE_GEN/sim_rirs/rirs_05_sa203.pkl
